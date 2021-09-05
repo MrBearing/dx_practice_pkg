@@ -15,7 +15,8 @@ class MinimalDinamixelDriveNode : public rclcpp::Node
       bool result = false;
 
       dynamixel_workbench_ = new DynamixelWorkbench;
-      result = dynamixel_workbench_->init("/dev/ttyUSB0", 57600, &log);
+      // result = dynamixel_workbench_->init("/dev/ttyUSB0", 57600, &log);
+      result = dynamixel_workbench_->init("/dev/dxhub", 57600, &log);
       if (result == false )
       {
         RCLCPP_ERROR(this->get_logger(),
